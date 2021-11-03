@@ -8,12 +8,12 @@ def downloadJsonFromSite():
     url = 'https://yurialessandro.github.io/gerador-ficha-tormenta20/'
     options = Options()
     options.add_experimental_option("prefs", {
-        "download.default_directory": r"C:\Users\Usuariio\Desktop\so\jsons",  #Professor, colocar um path para um local aonde o senhor deseja.
+        "download.default_directory": r"<inserir-path-do-diretorio>",  #Professor, colocar um path para um local aonde o senhor deseja.
         "download.prompt_for_download": False,
         "download.directory_upgrade": True,
         "safebrowsing.enabled": True,
     })
-    options.set_headless(headless=True)
+    options.set_headless(headless=True) # Configuração para não abrir as paginas do Chrome, para ver os navegadores abrindo, basta apagar essa linha
     options.add_experimental_option('excludeSwitches', ['enable-logging'])
     browser = webdriver.Chrome(options=options)
     browser.get(url)
@@ -22,7 +22,7 @@ def downloadJsonFromSite():
     browser.find_element_by_xpath('//*[@id="main-screen"]/div[3]/div[1]/div[1]/div[1]/a').click()
     print("Completo - Ficha Gerada e Baixada")
     time.sleep(2)
-    browser.quit
+    browser.quit()
 
 def menu():
     print("ANTES DE RODAR O PROGRAMA, ESCOLHER UM PATH AONDE SERA BAIXADO O ARQUIVO")
